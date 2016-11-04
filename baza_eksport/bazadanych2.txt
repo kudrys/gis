@@ -1,0 +1,4 @@
+1	"Orlen"
+2	"Shell"
+5	"Auchan"
+6	"Lotos"
