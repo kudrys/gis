@@ -18,11 +18,11 @@
   // do dodawania i usuwania stacji
   if(isset($_SESSION['uzyt_admin']))
   {
-    wyswietl_przycisk("indeks.php","Powrót");
+    wyswietl_przycisk("index.php","Powrót");
     wyswietl_przycisk("admin.php","Menu Administratora");
     wyswietl_przycisk("edycja_kom_form.php?id_kom=".$id_kom, "Edycja kompanii");
   } else {
-    wyswietl_przycisk("indeks.php","Powrót");
+    wyswietl_przycisk("index.php","Powrót");
   }
 
   tworz_stopke_html();

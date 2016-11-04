@@ -6,7 +6,7 @@ create table kompania
 (
   id_kom int unsigned not null auto_increment primary key,
   nazwakat char(60) not null
-) type=InnoDB;
+) engine=InnoDB;
 
 create table stacje
 (
@@ -19,7 +19,7 @@ create table stacje
   lon float(7,5),
   lat float(7,5),
   opis varchar(255)
-) type=InnoDB;
+) engine=InnoDB;
 
 create table ceny
 (
@@ -27,7 +27,7 @@ create table ceny
   pb95 float(3,2),
   ropa float(3,2),
   gaz float(3,2)
-) type=InnoDB;
+) engine=InnoDB;
 
 create table admin
 (

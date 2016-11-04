@@ -1,7 +1,7 @@
 <?php
 
 function lacz_bd() {
-   $wynik = new mysqli('localhost', 'stacje_paliw', 'stacje_paliw', 'stacje_paliw');
+   $wynik = new mysqli('localhost', 'root', '', 'stacje_paliw');
    if (!$wynik) {
       return false;
    }

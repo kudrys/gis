@@ -57,7 +57,7 @@ function tworz_naglowek_html($tytul = '', $llonst = 0, $llatst = 0) {
   <table width="100%" border="0" cellspacing = "0" bgcolor="#cccccc">
   <tr>
   <td rowspan = "2">
-  <a href = "indeks.php"><img src="obrazki/pg.gif" alt="Strona główna" border="0"
+  <a href = "index.php"><img src="obrazki/pg.gif" alt="Strona główna" border="0"
        align="left" valign="bottom" height = "55" width = "250"/></a>
   </td>
   <td rowspan = "2">
@@ -68,7 +68,7 @@ function tworz_naglowek_html($tytul = '', $llonst = 0, $llatst = 0) {
   ?>
   </td>
   <td rowspan = "2">
-  <a href = "indeks.php"><img src="obrazki/logo_eti.gif" alt="Strona główna" border="0"
+  <a href = "index.php"><img src="obrazki/logo_eti.gif" alt="Strona główna" border="0"
        align="right" valign="bottom" height = "55" width = "150"/></a>
   </td>
   </tr>
@@ -221,7 +221,7 @@ function wyswietl_menu_admin() {
 ?>
 <br />
 <?php
-wyswietl_przycisk("indeks.php", "Strona główna");
+wyswietl_przycisk("index.php", "Strona główna");
 wyswietl_przycisk("dodaj_kom_form.php", "Dodanie nowej kompanii");
 wyswietl_przycisk("dodaj_stacje_form.php", "Dodanie nowej stacji");
 wyswietl_przycisk("zmiana_hasla_form.php", "Zmiana hasła administratora");

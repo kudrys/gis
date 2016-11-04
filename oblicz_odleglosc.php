@@ -15,7 +15,7 @@ require_once('funkcje_elementy_stacje.php');
   wyswietl_trase($stacja['id_kom']);
 
   // ustawienie URL-a dla przycisku „powrot”
-  $cel = "indeks.php";
+  $cel = "index.php";
   if($stacja['id']) {
     $cel = "pokaz_stacje.php?id=".$stacja['id'];
   }
