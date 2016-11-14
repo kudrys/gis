@@ -1,0 +1,13 @@
+stacje_paliw  -> apteki
+
+stacje.txt  -> apteki.txt
+
+Ceny paliw  -> Ceny leków
+
+$tablica_stacji  -> $tablica_aptek
+
+kompanie  -> sieci
+
+$tablica_kom  -> $tablica_sieci
+
+wyswietl_kompanie  -> wyswietl_sieci

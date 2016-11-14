@@ -1,12 +1,12 @@
 <?php
 
 function tworz_naglowek_html($tytul = '', $llonst = 0, $llatst = 0) {
-  // wyÅ›wietlenie nagÅ‚Ã³wka HTML
+
 ?>
   <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
 	<meta charset="utf-8">
-	<link rel="Shortcut icon" href="obrazki/stacja.jpg" />
+	<link rel="Shortcut icon" href="obrazki/apteka.jpg" />
     <title><?php echo $tytul; ?></title>
 	<!-- The gmaps script -->
     <script src="http://maps.google.com/maps/api/js?v=3&amp;sensor=false"></script>
@@ -104,18 +104,18 @@ function tworz_html_url($url, $nazwa) {
 <?php
 }
 
-function wyswietl_kompanie($tablica_kom) {
-  if (!is_array($tablica_kom)) {
-     echo "<p>Brak dostÄ™pnych kompanii</p>";
+function wyswietl_sieci($tablica_sieci) {
+  if (!is_array($tablica_sieci)) {
+     echo "<p>Brak zapisanych sieci aptek</p>";
      return;
   }
   //stworzenie tabeli
 	echo "<table width = \"30%\" cellspacing = \"0\" border = \"0\">";
 
 	//stworzenie wiersza tabeli dla kaÅ¼dego elementu
-	foreach ($tablica_kom as $rzad)
+	foreach ($tablica_sieci as $rzad)
 	{
-	  $url = "pokaz_kom.php?id_kom=".($rzad['id_kom']);
+	  $url = "pokaz_sieci.php?id_kom=".($rzad['id_kom']);
 	  echo "<tr><td>";
 	  if (@file_exists("obrazki/".$rzad['nazwakat'].".jpg")) {
 		$tytul = "<img src=\"obrazki/".($rzad['nazwakat']).".jpg\"
@@ -133,18 +133,18 @@ function wyswietl_kompanie($tablica_kom) {
   echo "<hr />";
 }
 
-function wyswietl_stacje($tablica_stacji) {
+function wyswietl_apteki($tablica_aptek) {
   //wyÅ›wietlenie wszystkich stacji z przekazanej tablicy
-  if (!is_array($tablica_stacji)) {
-     echo "<p>Brak aktualnie dostÄ™pnych stacji w tej kategorii</p>";
+  if (!is_array($tablica_aptek)) {
+     echo "<p>Brak zapisanych aptek w tej kategorii</p>";
   } else {
     //stworzenie tabeli
     echo "<table width = \"30%\" cellspacing = \"0\" border = \"0\">";
 
     //stworzenie wiersza tabeli dla kaÅ¼dego elementu
-    foreach ($tablica_stacji as $rzad)
+    foreach ($tablica_aptek as $rzad)
     {
-      $url = "pokaz_stacje.php?id=".($rzad['id']);
+      $url = "pokaz_apteki.php?id=".($rzad['id']);
       echo "<tr><td>";
       if (@file_exists("obrazki/".$rzad['id'].".jpg")) {
         $link = "<img src=\"obrazki/".($rzad['id']).".jpg\"
@@ -163,37 +163,37 @@ function wyswietl_stacje($tablica_stacji) {
   echo "<hr />";
 }
 
-function wyswietl_dane_stacji($stacja) {
-  // wyÅ›wietlenie wszystkich danych konkretnego elementu
-  if (is_array($stacja)) {
+function wyswietl_dane_apteki($apteka) {
+  // wyœwietlenie wszystkich danych konkretnego elementu
+  if (is_array($apteka)) {
     echo "<table><tr>";
-    //wyÅ›wietlenie obrazka jeÅ¼eli istnieje
-    if (@file_exists("obrazki/".($stacja['id']).".jpg")) {
-      $wielkosc = GetImageSize("obrazki/".$stacja['id'].".jpg");
+    //wœwietlenie obrazka je¿eli istnieje
+    if (@file_exists("obrazki/".($apteka['id']).".jpg")) {
+      $wielkosc = GetImageSize("obrazki/".$apteka['id'].".jpg");
       if(($wielkosc[0] > 0) && ($wielkosc[1] > 0)) {
-        echo "<td><img src=\"obrazki/".$stacja['id'].".jpg\" style=\"border: 1px solid black\"/></td";
+        echo "<td><img src=\"obrazki/".$apteka['id'].".jpg\" style=\"border: 1px solid black\"/></td";
       }
     }
     echo "<td><ul>";
     echo "<li><strong>Miasto:</strong> ";
-    echo $stacja['miasto'];
+    echo $apteka['miasto'];
 	echo "<li><strong>Dzielnica:</strong> ";
-    echo $stacja['dzielnica'];
+    echo $apteka['dzielnica'];
 	echo "<li><strong>Ulica:</strong> ";
-    echo $stacja['ulica'];
+    echo $apteka['ulica'];
 	echo "<li><strong>Nazwa:</strong> ";
-    echo $stacja['nazwa'];
+    echo $apteka['nazwa'];
     echo "</li><li><strong>Id:</strong> ";
-    echo $stacja['id'];
+    echo $apteka['id'];
     echo "</li><li><strong>Lon:</strong> ";
-    echo number_format($stacja['lon'], 5);
+    echo number_format($apteka['lon'], 5);
 	echo "</li><li><strong>Lat:</strong> ";
-    echo number_format($stacja['lat'], 5);
+    echo number_format($apteka['lat'], 5);
     echo "</li><li><strong>Opis:</strong> ";
-    echo $stacja['opis'];
+    echo $apteka['opis'];
     echo "</li></ul></td></tr></table>";
   } else {
-    echo "Dane tego elementu nie mogÄ… zostaÄ‡ wyÅ›wietlone w tym momencie.";
+    echo "B³¹d! Nie mo¿na wyœwietliæ danych dla tego elementu.";
   }
   echo "<hr />";
 }
@@ -204,10 +204,10 @@ function wyswietl_form_log() {
   <form method="post" action="admin.php">
   <table bgcolor="#cccccc">
    <tr>
-     <td>Nazwa uÅ¼ytkownika:</td>
+     <td>Nazwa u¿ytkownika:</td>
      <td><input type="text" name="nazwa_uz"/></td></tr>
    <tr>
-     <td>HasÅ‚o:</td>
+     <td>Has³o:</td>
      <td><input type="password" name="haslo"/></td></tr>
    <tr>
      <td colspan="2" align="center">
@@ -221,10 +221,10 @@ function wyswietl_menu_admin() {
 ?>
 <br />
 <?php
-wyswietl_przycisk("index.php", "Strona gÅ‚Ã³wna");
-wyswietl_przycisk("dodaj_kom_form.php", "Dodanie nowej kompanii");
-wyswietl_przycisk("dodaj_stacje_form.php", "Dodanie nowej stacji");
-wyswietl_przycisk("zmiana_hasla_form.php", "Zmiana hasÅ‚a administratora");
+wyswietl_przycisk("index.php", "Strona g³ówna");
+wyswietl_przycisk("dodaj_siec_form.php", "Dodanie nowej sieci aptek");
+wyswietl_przycisk("dodaj_apteke_form.php", "Dodanie nowej apteki");
+wyswietl_przycisk("zmiana_hasla_form.php", "Zmiana has³a administratora");
 
 }
 
@@ -242,17 +242,17 @@ function wyswietl_form_przycisk($obrazek, $alt) {
 function wyswietl_form_trasy() {
 ?>
 	<div class="row">
-		<p>PrzeciÄ…gnij czerwony punkt by wyznaczyÄ‡ trasÄ™ do stacji.</p>
+		<p>Przeci¹gnij czerwony punkt by wyznaczyæ trasê do apteki.</p>
 		<p>GIS Support GeoNetwork API</p>
 		<label for="typ">Oblicz dla pojazdu: </label>
 			<select id="typ">
 			<option selected="selected" value="osobowy">do 3,5 t</option>
-			<option value="ciezarowy">powyÅ¼ej 3,5 t</option>
+			<option value="ciezarowy">powy¿ej 3,5 t</option>
 		</select>
 		<div id="wynik" class="hide">
-		OdlegÅ‚oÅ›Ä‡: <span id="dystans"></span>, szacowany czas przejazdu: <span id="czas"></span>
+		Odleg³oœæ: <span id="dystans"></span>, szacowany czas przejazdu: <span id="czas"></span>
 		</div>
-		<div id="wyznaczanie" class="hide">Wyznaczam nowÄ… trasÄ™...</div>
+		<div id="wyznaczanie" class="hide">Wyznaczam now¹ trasê...</div>
 		<hr />
 	</div>
 <?php
@@ -272,7 +272,8 @@ function wyswietl_mape($z=0){
 	
 	map.addLayers([osm, google_teren, google_satelita, google_hybryda, bing1, bing2, bing3]);
 	map.zoomIn();
-	
+        map.zoomOut();   //BP - doda³em to z kapelusza 7.11.2016
+        
 	map.addControl(new OpenLayers.Control.LayerSwitcher());
 	map.addControl(new OpenLayers.Control.PanZoomBar());
 	map.addControl(new OpenLayers.Control.ScaleLine());
@@ -281,8 +282,8 @@ function wyswietl_mape($z=0){
 	map.addControl(new OpenLayers.Control.MousePosition());
 	map.addControl(new OpenLayers.Control.Navigation());
 	
-	var pois = new OpenLayers.Layer.Text( "Stacje paliw",
-                    { location:"./stacje.txt",
+	var pois = new OpenLayers.Layer.Text( "Apteki",
+                    { location:"./apteki.txt",
                       projection: map.displayProjection
                     });
     map.addLayer(pois);
@@ -321,7 +322,7 @@ function wyswietl_trase($id_obr){
 			strokeOpacity: 0.4
 		})
 	});
-	var markersLayer = new OpenLayers.Layer.Vector("Punkt poczÄ…tkowy i stacja");
+	var markersLayer = new OpenLayers.Layer.Vector("Punkt pocz¹tkowy i apteka");
 
 	var startPoint = new OpenLayers.Geometry.Point(lonst,latst).transform(wgs84, mercator)
 		
@@ -399,7 +400,7 @@ function wyswietl_trase($id_obr){
 		)
 			.fail(function (err) {
 				$('#wyznaczanie').addClass('hide');
-				alert('BÅ‚Ä…d serwera');
+				alert('B³¹d serwera!');
 			});
 	}
 	calculateRoute();

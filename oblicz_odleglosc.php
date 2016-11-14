@@ -1,32 +1,31 @@
 <?php
 session_start();
-require_once('funkcje_elementy_stacje.php');
+require_once('funkcje_elementy_apteki.php');
 
   $id = $_GET['id'];
 
-  // pobranie stacji z bazy danych
-  $stacja = pobierz_dane_stacji($id);
+  // pobranie danych apteki z bazy danych
+  $apteka = pobierz_dane_apteki($id);
   
-  $tablica_wyn[0] = $stacja;
+  $tablica_wyn[0] = $apteka;
   przygotuj($tablica_wyn);
 
-  tworz_naglowek_html("Wyznaczanie trasy",$stacja['lon'], $stacja['lat']);
+  tworz_naglowek_html("Wyznaczanie trasy",$apteka['lon'], $apteka['lat']);
   wyswietl_form_trasy();
-  wyswietl_trase($stacja['id_kom']);
+  wyswietl_trase($apteka['id_kom']);
 
-  // ustawienie URL-a dla przycisku â€žpowrotâ€
+  // ustawienie URL-a dla przycisku powrotu
   $cel = "index.php";
-  if($stacja['id']) {
-    $cel = "pokaz_stacje.php?id=".$stacja['id'];
+  if($apteka['id']) {
+    $cel = "pokaz_apteki.php?id=".$apteka['id'];
   }
-  // jeÅ¼eli zalogowany jako administrator, pokaÅ¼ Å‚Ä…cze do edycji stacji
+  // je¿eli zalogowany jako administrator, udostêpnij edycjê danych apteki
   if(sprawdz_uzyt_admin()) {
     wyswietl_przycisk("admin.php","Menu administratora");
-    wyswietl_przycisk($cel,"PowrÃ³t");
+    wyswietl_przycisk($cel,"Powrót");
   } else {
-    wyswietl_przycisk($cel,"PowrÃ³t");
+    wyswietl_przycisk($cel,"Powrót");
   }
   
-
   tworz_stopke_html();
 ?>

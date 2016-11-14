@@ -1,4 +1,4 @@
-1	"Orlen"
-2	"Shell"
-5	"Auchan"
-6	"Lotos"
+1	"DoZ"
+2	"Dy¿urna"
+5	"DomLeków"
+6	"Sieciowa"

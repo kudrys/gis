@@ -1,24 +1,23 @@
 <?php
   session_start();
-  require ('funkcje_elementy_stacje.php');
+  require ('funkcje_elementy_apteki.php');
   
   // pobranie kompanii z bazy danych
-  $tablica_kom = pobierz_kompanie();
+  $tablica_sieci = pobierz_sieci();
   // pobranie informacji o stacjach z bazy danych
-  $tablica_stacji = pobierz_wszystkie_stacje();
-  przygotuj($tablica_stacji);
+  $tablica_aptek = pobierz_wszystkie_apteki();
+  przygotuj($tablica_aptek);
   
   //tworz_naglowek_html($nazwa);
-  tworz_naglowek_html("TrÃ³jmiejskie stacje paliw");
+  tworz_naglowek_html("Apteki na terenie Trójmiasta");
   wyswietl_mape();
 
-  echo "<p>ProszÄ™ wybraÄ‡ kompaniÄ™:</p>";
+  echo "<p>Proszê wybraæ sieæ aptek:</p>";
 
-  // wyÅ›wietlenie jako Å‚Ä…cza do strony kategorii
-  wyswietl_kompanie($tablica_kom);
+  wyswietl_sieci($tablica_sieci);
 
-  // jeÅ¼eli zalogowany jako administrator, pokaÅ¼ Å‚Ä…cza dodawania,
-  // usuwania i edycji
+  // je¿eli zalogowany jako administrator, udostêpnij dodawanie,
+  // usuwanie i edycjê
   if(isset($_SESSION['uzyt_admin'])) {
     wyswietl_przycisk("admin.php", "Menu Administratora");
   }

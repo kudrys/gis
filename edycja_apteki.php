@@ -1,10 +1,10 @@
 <?php
 session_start();
-// doÅ‚Ä…czenie plikÃ³w funkcji dla tej aplikacji
-require_once('funkcje_elementy_stacje.php');
+
+require_once('funkcje_elementy_apteki.php');
 
 
-tworz_naglowek_html("Uaktualnienie stacji");
+tworz_naglowek_html("Zmiana danych wybranej apteki");
 if (sprawdz_uzyt_admin()) {
   if (wypelniony($_POST)) {
     $staryid = $_POST['staryid'];
@@ -19,16 +19,16 @@ if (sprawdz_uzyt_admin()) {
 	$opis = $_POST['opis'];
 
     if(uakt_stacje($staryid, $id, $nazwa, $dzielnica, $ulica, $miasto, $id_kom, $lon, $lat, $opis)) {
-      echo "<p>Stacja zostaÅ‚a uaktualniona.</p>";
+      echo "<p>Dane apteki zosta³y zmienione.</p>";
     } else {
-      echo "<p>Stacja nie mÃ³gÅ‚a zostaÄ‡ uaktualniona.</p>";
+      echo "<p>B³¹d! Dane apteki nie zosta³y zmienione.</p>";
     }
   } else {
-    echo "<p>Formularz niewypeÅ‚niony. ProszÄ™ sprÃ³bowaÄ‡ ponownie.</p>";
+    echo "<p>Formularz niewype³niony. Proszê spróbowaæ ponownie.</p>";
   }
-  wyswietl_przycisk("admin.php", "PowrÃ³t do menu administratora");
+  wyswietl_przycisk("admin.php", "Powrót do menu administratora");
 } else {
-  echo "<p>Brak autoryzacji do oglÄ…dania tej strony.</p>";
+  echo "<p>Brak autoryzacji do ogl¹dania tej strony.</p>";
 }
 
 tworz_stopke_html();

@@ -1,32 +1,32 @@
-create database stacje_paliw;
+create database apteki;
 
-use stacje_paliw;
+use apteki;
 
-create table kompania
+create table sieci
 (
   id_kom int unsigned not null auto_increment primary key,
   nazwakat char(60) not null
-) ;
+);
 
-create table stacje
+create table apteki
 (
   id char(15) not null primary key,
   nazwa char(100) not null,
   dzielnica char(100) not null,
   ulica char(100) not null,
   miasto char(100) not null,
-  id_kom int unsigned not null references kompania(id_kom),
-  lon float(7,5),
-  lat float(7,5),
+  id_kom int unsigned not null references sieci(id_kom),
+  lon numeric(7,5),
+  lat numeric(7,5),
   opis varchar(255)
-) ;
+);
 
 create table ceny
 (
-  id_cena char(15) not null primary key references stacje(id),
-  pb95 float(3,2),
-  ropa float(3,2),
-  gaz float(3,2)
+  id_cena char(15) not null primary key references apteki(id),
+  apap numeric(3,2),
+  ibum numeric(3,2),
+  2kc numeric(3,2)
 );
 
 create table admin
@@ -36,5 +36,5 @@ create table admin
 );
 
 grant select, insert, update, delete, index, alter, create, drop
-on stacje_paliw.*
-to stacje_paliw@localhost identified by 'stacje_paliw';
+on apteki.*
+to apteki@localhost identified by 'apteki';
