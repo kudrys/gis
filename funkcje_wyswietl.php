@@ -16,21 +16,31 @@ function tworz_naglowek_html($tytul = '', $llonst = 0, $llatst = 0) {
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 	<style>
       h2 { font-family: Arial, Helvetica, sans-serif; font-size: 22px; color: #FF0000; margin: 6px }
-      body { font-family: Arial, Helvetica, sans-serif; font-size: 13px; background: #F1F1F1 }
+      body { font-family: Arial, Helvetica, sans-serif; font-size: 13px; background: lightgrey }
+	  /* sieci aptek */
       li, td { font-family: Arial, Helvetica, sans-serif; font-size: 13px }
-      hr { border-color: #FF0000; color: #FF0000; background-color: #FF0000; width: 30%; text-align: center;}
-      a { color: #1a13f0 }
-	  #map { width:850px; height:700px; float:right;}
+	  /* kreska */
+      hr { border-color: darkred; color: darkred; background-color: #FF0000; width: 100%; text-align: center;}
+      /* sieci aptek - tekst */
+	  a { color: darkred }
+	  /* div content */
+	  div#content { margin: 0 200px;}
+	  #map { width:750px; height:600px; border-style: groove; float:right;}
+
+	  .cont {
+		  margin-right: 66;
+	  }
+
 	  div.olControlZoom {disable: True}
 	  button {
-		  -webkit-border-radius: 28;
-		  -moz-border-radius: 28;
+		  -webkit-border-radius: 28px;
+		  -moz-border-radius: 28px;
 		  border-radius: 28px;
 		  font-family: Arial;
-		  color: #1a13f0; border-color: #1a13f0; background-color: #1a13f0;
-		  font-size: 14px;
-		  background: #bdbfbd;
-		  padding: 10px 20px 10px 20px;
+		  color: darkred; border-color: darkred; background-color: darkgrey;
+		  font-size: 18px;
+		  background: darkgrey;
+		  padding: 18px 28px 18px 28px;
 		  text-decoration: none;
 		}
 	  button:hover {
@@ -45,47 +55,43 @@ function tworz_naglowek_html($tytul = '', $llonst = 0, $llatst = 0) {
             var lat = 54.37170;
 			var lonst = <?php echo $llonst ?>;
             var latst = <?php echo $llatst ?>;
-            var zoom = 5;
+            var zoom = 2;
             var mercator = new OpenLayers.Projection("EPSG:900913");
-            var wgs84 = new OpenLayers.Projection("EPSG:4326"); 
+            var wgs84 = new OpenLayers.Projection("EPSG:4326");
             var apiKey = "AqTGBsziZHIJYYxgivLBf0hVdrAk9mWO5cQcb8Yux8sW5M8c8opEC2lZqKR1ZZXf";
             var options = { projection: mercator, displayProjection: wgs84, controls: []};
 	</script>
   </head>
-  <body>
-  
-  <table width="100%" border="0" cellspacing = "0" bgcolor="#cccccc">
-  <tr>
-  <td rowspan = "2">
-  <a href = "index.php"><img src="obrazki/pg.gif" alt="Strona gÅ‚Ã³wna" border="0"
-       align="left" valign="bottom" height = "55" width = "250"/></a>
-  </td>
-  <td rowspan = "2">
-  <?php
-    if(isset($_SESSION['uzyt_admin'])) {
-       wyswietl_przycisk('wylog.php', 'Wylogowanie');
-    }
-  ?>
-  </td>
-  <td rowspan = "2">
-  <a href = "index.php"><img src="obrazki/logo_eti.gif" alt="Strona gÅ‚Ã³wna" border="0"
-       align="right" valign="bottom" height = "55" width = "150"/></a>
-  </td>
-  </tr>
-  </table>
-<?php
-  if($tytul) {
-    tworz_tytul_html($tytul);
-  }
-  ?>
-   <div id="map"></div>
-<?php 
-}
+  <div id="content">
+	  <body>
 
-function tworz_stopke_html() {
-  // wyÅ›wietlenie stopki HTML
-?>
-  </body>
+	  <table width="100%" border="0" cellspacing = "0" bgcolor="#cccccc">
+	  <tr>
+	  <td rowspan = "2">
+	  <td rowspan = "2">
+	  <?php
+		if(isset($_SESSION['uzyt_admin'])) {
+		   wyswietl_przycisk('wylog.php', 'Wylogowanie');
+		}
+	  ?>
+	  </td>
+	  <td rowspan = "2">
+	  </tr>
+	  </table>
+	<?php
+	  if($tytul) {
+		tworz_tytul_html($tytul);
+	  }
+	  ?>
+	   <div id="map"></div>
+	<?php
+	}
+
+	function tworz_stopke_html() {
+	  // wyÅ›wietlenie stopki HTML
+	?>
+	  </body>
+  </div>
   </html>
 <?php
 }
@@ -130,7 +136,7 @@ function wyswietl_sieci($tablica_sieci) {
 		}
 	}
 	echo "</table>";
-  echo "<hr />";
+
 }
 
 function wyswietl_apteki($tablica_aptek) {
@@ -164,10 +170,10 @@ function wyswietl_apteki($tablica_aptek) {
 }
 
 function wyswietl_dane_apteki($apteka) {
-  // wyœwietlenie wszystkich danych konkretnego elementu
+  // wyï¿½wietlenie wszystkich danych konkretnego elementu
   if (is_array($apteka)) {
     echo "<table><tr>";
-    //wœwietlenie obrazka je¿eli istnieje
+    //wï¿½wietlenie obrazka jeï¿½eli istnieje
     if (@file_exists("obrazki/".($apteka['id']).".jpg")) {
       $wielkosc = GetImageSize("obrazki/".$apteka['id'].".jpg");
       if(($wielkosc[0] > 0) && ($wielkosc[1] > 0)) {
@@ -193,7 +199,7 @@ function wyswietl_dane_apteki($apteka) {
     echo $apteka['opis'];
     echo "</li></ul></td></tr></table>";
   } else {
-    echo "B³¹d! Nie mo¿na wyœwietliæ danych dla tego elementu.";
+    echo "Bï¿½ï¿½d! Nie moï¿½na wyï¿½wietliï¿½ danych dla tego elementu.";
   }
   echo "<hr />";
 }
@@ -204,10 +210,10 @@ function wyswietl_form_log() {
   <form method="post" action="admin.php">
   <table bgcolor="#cccccc">
    <tr>
-     <td>Nazwa u¿ytkownika:</td>
+     <td>Nazwa uï¿½ytkownika:</td>
      <td><input type="text" name="nazwa_uz"/></td></tr>
    <tr>
-     <td>Has³o:</td>
+     <td>Hasï¿½o:</td>
      <td><input type="password" name="haslo"/></td></tr>
    <tr>
      <td colspan="2" align="center">
@@ -221,10 +227,10 @@ function wyswietl_menu_admin() {
 ?>
 <br />
 <?php
-wyswietl_przycisk("index.php", "Strona g³ówna");
+wyswietl_przycisk("index.php", "Strona gï¿½ï¿½wna");
 wyswietl_przycisk("dodaj_siec_form.php", "Dodanie nowej sieci aptek");
 wyswietl_przycisk("dodaj_apteke_form.php", "Dodanie nowej apteki");
-wyswietl_przycisk("zmiana_hasla_form.php", "Zmiana has³a administratora");
+wyswietl_przycisk("zmiana_hasla_form.php", "Zmiana hasï¿½a administratora");
 
 }
 
@@ -242,17 +248,17 @@ function wyswietl_form_przycisk($obrazek, $alt) {
 function wyswietl_form_trasy() {
 ?>
 	<div class="row">
-		<p>Przeci¹gnij czerwony punkt by wyznaczyæ trasê do apteki.</p>
+		<p>Przeciï¿½gnij czerwony punkt by wyznaczyï¿½ trasï¿½ do apteki.</p>
 		<p>GIS Support GeoNetwork API</p>
 		<label for="typ">Oblicz dla pojazdu: </label>
 			<select id="typ">
 			<option selected="selected" value="osobowy">do 3,5 t</option>
-			<option value="ciezarowy">powy¿ej 3,5 t</option>
+			<option value="ciezarowy">powyï¿½ej 3,5 t</option>
 		</select>
 		<div id="wynik" class="hide">
-		Odleg³oœæ: <span id="dystans"></span>, szacowany czas przejazdu: <span id="czas"></span>
+		Odlegï¿½oï¿½ï¿½: <span id="dystans"></span>, szacowany czas przejazdu: <span id="czas"></span>
 		</div>
-		<div id="wyznaczanie" class="hide">Wyznaczam now¹ trasê...</div>
+		<div id="wyznaczanie" class="hide">Wyznaczam nowï¿½ trasï¿½...</div>
 		<hr />
 	</div>
 <?php
@@ -272,7 +278,7 @@ function wyswietl_mape($z=0){
 	
 	map.addLayers([osm, google_teren, google_satelita, google_hybryda, bing1, bing2, bing3]);
 	map.zoomIn();
-        map.zoomOut();   //BP - doda³em to z kapelusza 7.11.2016
+        map.zoomOut();
         
 	map.addControl(new OpenLayers.Control.LayerSwitcher());
 	map.addControl(new OpenLayers.Control.PanZoomBar());
@@ -322,7 +328,7 @@ function wyswietl_trase($id_obr){
 			strokeOpacity: 0.4
 		})
 	});
-	var markersLayer = new OpenLayers.Layer.Vector("Punkt pocz¹tkowy i apteka");
+	var markersLayer = new OpenLayers.Layer.Vector("Punkt poczï¿½tkowy i apteka");
 
 	var startPoint = new OpenLayers.Geometry.Point(lonst,latst).transform(wgs84, mercator)
 		
@@ -400,7 +406,7 @@ function wyswietl_trase($id_obr){
 		)
 			.fail(function (err) {
 				$('#wyznaczanie').addClass('hide');
-				alert('B³¹d serwera!');
+				alert('Bï¿½ï¿½d serwera!');
 			});
 	}
 	calculateRoute();

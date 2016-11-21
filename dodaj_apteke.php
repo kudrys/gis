@@ -17,17 +17,17 @@ if (sprawdz_uzyt_admin()) {
 	$lat = $_POST['lat'];
 	$opis = $_POST['opis'];
 
-    if(dodaj_stacje($id, $nazwa, $dzielnica, $ulica, $miasto, $id_kom, $lon, $lat, $opis)) {
-      echo "<p>Apteka <em>".stripslashes($id)."</em> zosta³a dodana do bazy danych.</p>";
+    if(dodaj_apteke($id, $nazwa, $dzielnica, $ulica, $miasto, $id_kom, $lon, $lat, $opis)) {
+      echo "<p>Apteka <em>".stripslashes($id)."</em> zosta?a dodana do bazy danych.</p>";
     } else {
-      echo "<p>Apteka <em>".stripslashes($id)."</em> nie mog³aa zostaæ dodana do bazy danych.</p>";
+      echo "<p>Apteka <em>".stripslashes($id)."</em> nie mog?aa zosta? dodana do bazy danych.</p>";
     }
   } else {
-    echo "<p>Formularz nie zosta³ wype³niony. Proszê spróbowaæ ponownie.</p>";
+    echo "<p>Formularz nie zosta? wype?niony. Prosz? spr?bowa? ponownie.</p>";
   }
-  wyswietl_przycisk("admin.php", "Powrót do menu administratora");
+  wyswietl_przycisk("admin.php", "Powr?t do menu administratora");
 } else {
-  echo "<p>Brak autoryzacji do przegl¹dania tej strony.</p>";
+  echo "<p>Brak autoryzacji do przegl?dania tej strony.</p>";
 }
 
 tworz_stopke_html();
