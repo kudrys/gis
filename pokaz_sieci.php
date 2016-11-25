@@ -15,14 +15,13 @@
   wyswietl_apteki($tablica_aptek);
 	
   // je?eli zalogowany jako administrator, udost?pnij
-  // dodawanie, edycj? i usuwanie aptek
+  // dodawanie, edycj? i usuwanie aptekw
+    wyswietl_przycisk("index.php","Powrót");
   if(isset($_SESSION['uzyt_admin']))
   {
-    wyswietl_przycisk("index.php","Powr?t");
+
     wyswietl_przycisk("admin.php","Menu Administratora");
     wyswietl_przycisk("edycja_kom_form.php?id_kom=".$id_kom, "Edycja sieci aptek");
-  } else {
-    wyswietl_przycisk("index.php","Powr?t");
   }
 
   tworz_stopke_html();

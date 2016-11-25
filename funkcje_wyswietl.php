@@ -8,6 +8,7 @@ function tworz_naglowek_html($tytul = '', $llonst = 0, $llatst = 0) {
 	<meta charset="utf-8">
 	<link rel="Shortcut icon" href="obrazki/apteka.jpg" />
 	<link rel="Shortcut icon" href="http://getbootstrap.com/dist/css/bootstrap.min.css" />
+	<link href="Shortcut icon" href="http://getbootstrap.com/dist/css/bootstrap.min.css" />
     <title><?php echo $tytul; ?></title>
 	<!-- The gmaps script -->
     <script src="http://maps.google.com/maps/api/js?v=3&amp;sensor=false"></script>
@@ -16,6 +17,11 @@ function tworz_naglowek_html($tytul = '', $llonst = 0, $llatst = 0) {
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 	<style>
+		img.apteka{
+			width: 100px;
+			height: 100px;
+		}
+
       h2 { font-family: Arial, Helvetica, sans-serif; font-size: 22px; color: #FF0000; margin: 6px }
       body { font-family: Arial, Helvetica, sans-serif; font-size: 13px; background: lightgrey }
 	  /* sieci aptek */
@@ -33,21 +39,6 @@ function tworz_naglowek_html($tytul = '', $llonst = 0, $llatst = 0) {
 	  }
 
 	  div.olControlZoom {disable: True}
-	  button {
-		  -webkit-border-radius: 28px;
-		  -moz-border-radius: 28px;
-		  border-radius: 28px;
-		  font-family: Arial;
-		  color: darkred; border-color: darkred; background-color: darkgrey;
-		  font-size: 18px;
-		  background: darkgrey;
-		  padding: 18px 28px 18px 28px;
-		  text-decoration: none;
-		}
-	  button:hover {
-		  background: #545953;
-		  text-decoration: none;
-		}
 	  .hide {
           display: none; }
     </style>
@@ -63,9 +54,9 @@ function tworz_naglowek_html($tytul = '', $llonst = 0, $llatst = 0) {
             var options = { projection: mercator, displayProjection: wgs84, controls: []};
 	</script>
   </head>
-  <div id="content">
 	  <body>
-
+  <div id="content container">
+	<div class="row">
 	  <table width="100%" border="0" cellspacing = "0" bgcolor="#cccccc">
 	  <tr>
 	  <td rowspan = "2">
@@ -91,8 +82,11 @@ function tworz_naglowek_html($tytul = '', $llonst = 0, $llatst = 0) {
 	function tworz_stopke_html() {
 	  // wyświetlenie stopki HTML
 	?>
-	  </body>
+
+
+	  </div>
   </div>
+  </body>
   </html>
 <?php
 }
@@ -112,6 +106,7 @@ function tworz_html_url($url, $nazwa) {
 }
 
 function wyswietl_sieci($tablica_sieci) {
+
   if (!is_array($tablica_sieci)) {
      echo "<p>Brak zapisanych sieci aptek</p>";
      return;
@@ -125,7 +120,7 @@ function wyswietl_sieci($tablica_sieci) {
 	  $url = "pokaz_sieci.php?id_kom=".($rzad['id_kom']);
 	  echo "<tr><td>";
 	  if (@file_exists("obrazki/".$rzad['id_kom'].".png")) {
-		$tytul = "<img src=\"obrazki/".($rzad['id_kom']).".png\"
+		$tytul = "<img class=\"apteka\" src=\"obrazki/".($rzad['id_kom']).".png\"
 				  style=\"border: 1px solid black\"/>";
 		tworz_html_url($url, $tytul);
 	  } else {
@@ -236,7 +231,7 @@ wyswietl_przycisk("zmiana_hasla_form.php", "Zmiana has�a administratora");
 }
 
 function wyswietl_przycisk($cel, $alt) {
-  echo "<center><div><button><a href=\"$cel\">$alt</a></button></div></center>";
+  echo "<center><div><button type=\"button\" class=\"btn btn-default\"><a href=\"$cel\">$alt</a></button></div></center>";
 }
 
 function wyswietl_form_przycisk($obrazek, $alt) {
