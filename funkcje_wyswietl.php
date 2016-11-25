@@ -7,6 +7,7 @@ function tworz_naglowek_html($tytul = '', $llonst = 0, $llatst = 0) {
   <head>
 	<meta charset="utf-8">
 	<link rel="Shortcut icon" href="obrazki/apteka.jpg" />
+	<link rel="Shortcut icon" href="http://getbootstrap.com/dist/css/bootstrap.min.css" />
     <title><?php echo $tytul; ?></title>
 	<!-- The gmaps script -->
     <script src="http://maps.google.com/maps/api/js?v=3&amp;sensor=false"></script>
@@ -123,8 +124,8 @@ function wyswietl_sieci($tablica_sieci) {
 	{
 	  $url = "pokaz_sieci.php?id_kom=".($rzad['id_kom']);
 	  echo "<tr><td>";
-	  if (@file_exists("obrazki/".$rzad['nazwakat'].".jpg")) {
-		$tytul = "<img src=\"obrazki/".($rzad['nazwakat']).".jpg\"
+	  if (@file_exists("obrazki/".$rzad['id_kom'].".png")) {
+		$tytul = "<img src=\"obrazki/".($rzad['id_kom']).".png\"
 				  style=\"border: 1px solid black\"/>";
 		tworz_html_url($url, $tytul);
 	  } else {
@@ -152,12 +153,12 @@ function wyswietl_apteki($tablica_aptek) {
     {
       $url = "pokaz_apteki.php?id=".($rzad['id']);
       echo "<tr><td>";
-      if (@file_exists("obrazki/".$rzad['id'].".jpg")) {
+      if (1 || @file_exists("obrazki/".$rzad['id'].".jpg")) {
         $link = "<img src=\"obrazki/".($rzad['id']).".jpg\"
                   style=\"border: 1px solid black\"/>";
         tworz_html_url($url, $link);
       } else {
-        echo "&nbsp;";
+        echo "&nbsp; k";
       }
       echo "</td><td>";
       $link =  $rzad['miasto'].', '.$rzad['dzielnica'].', '.$rzad['ulica'];

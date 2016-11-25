@@ -1,17 +1,6 @@
 lat	lon	title	description	iconSize	iconOffset	icon
-54.34997	18.52587	Ceny leków:	APAP 4,49 IBUM 8,69 2KC 5,19	38,38	-10,-38	./obrazki/5.png
-54.33767	18.62820	Ceny leków:	APAP 4,99 IBUM 8,99 2KC 5,49	38,38	-10,-38	./obrazki/6.png
-54.32744	18.61282	Ceny leków:	APAP 4,99 IBUM 8,99 2KC 5,49	38,38	-10,-38	./obrazki/6.png
-54.35555	18.61594	Ceny leków:	APAP 4,69 IBUM 8,89 2KC 5,59	38,38	-10,-38	./obrazki/6.png
-54.35447	18.66199	Ceny leków:	APAP 4,69 IBUM 8,89 2KC 5,59	38,38	-10,-38	./obrazki/6.png
-54.37134	18.62773	Ceny leków:	APAP 4,99 IBUM 8,99 2KC 5,49	38,38	-10,-38	./obrazki/6.png
 54.32619	18.60790	Ceny leków:	APAP 4,19 IBUM 9,19 2KC 5,39	38,38	-10,-38	./obrazki/1.png
 54.35916	18.64060	Ceny leków:	APAP 4,19 IBUM 9,19 2KC 5,39	38,38	-10,-38	./obrazki/1.png
 54.33340	18.63553	Ceny leków:	APAP 4,39 IBUM 9,29 2KC 5,29	38,38	-10,-38	./obrazki/1.png
 54.34847	18.68251	Ceny leków:	APAP 4,39 IBUM 9,29 2KC 5,29	38,38	-10,-38	./obrazki/1.png
 54.40271	18.66371	Ceny leków:	APAP 4,59 IBUM 9,19 2KC 5,39	38,38	-10,-38	./obrazki/1.png
-54.36697	18.51915	Ceny leków:	APAP 4,89 IBUM 8,79 2KC 5,39	38,38	-10,-38	./obrazki/2.png
-54.33956	18.55422	Ceny leków:	APAP 4,89 IBUM 8,79 2KC 5,39	38,38	-10,-38	./obrazki/2.png
-54.32665	18.61018	Ceny leków:	APAP 4,79 IBUM 8,69 2KC 5,49	38,38	-10,-38	./obrazki/2.png
-54.34614	18.60427	Ceny leków:	APAP 4,79 IBUM 8,89 2KC 5,49	38,38	-10,-38	./obrazki/2.png
-54.38410	18.59672	Ceny leków:	APAP 4,69 IBUM 8,79 2KC 5,39	38,38	-10,-38	./obrazki/2.png
