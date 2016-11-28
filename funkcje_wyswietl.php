@@ -17,10 +17,15 @@ function tworz_naglowek_html($tytul = '', $llonst = 0, $llatst = 0) {
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 	<style>
-		img.apteka{
+		img.sieci{
 			width: 100px;
 			height: 100px;
 		}
+		img.apteka{
+			width: 200px;
+			height: 100px;
+		}
+
 		/* tytuł */
 		h2 { font-family: Arial, Helvetica, sans-serif; font-size: 30px; color: #FF0000; margin 5px}
 		/* body */
@@ -34,7 +39,6 @@ function tworz_naglowek_html($tytul = '', $llonst = 0, $llatst = 0) {
 		/* div content */
 		div#content { margin: 0 250px;}
 		#map { width:750px; height:600px; border-style: groove; float:right;}
-
 		.cont {
 			margin-right: 66;
 		}
@@ -117,7 +121,7 @@ function wyswietl_sieci($tablica_sieci) {
 	  $url = "pokaz_sieci.php?id_kom=".($rzad['id_kom']);
 	  echo "<tr><td>";
 	  if (@file_exists("obrazki/".$rzad['id_kom'].".png")) {
-		$tytul = "<img class=\"apteka\" src=\"obrazki/".($rzad['id_kom']).".png\"
+		$tytul = "<img class=\"sieci\" src=\"obrazki/".($rzad['id_kom']).".png\"
 				  style=\"border: 1px solid black\"/>";
 		tworz_html_url($url, $tytul);
 	  } else {
@@ -146,7 +150,7 @@ function wyswietl_apteki($tablica_aptek) {
       $url = "pokaz_apteki.php?id=".($rzad['id']);
       echo "<tr><td>";
       if (1 || @file_exists("obrazki/".$rzad['id'].".jpg")) {
-        $link = "<img src=\"obrazki/".($rzad['id']).".jpg\"
+        $link = "<img class=\"apteka\" src=\"obrazki/".($rzad['id']).".jpg\"
                   style=\"border: 1px solid black\"/>";
         tworz_html_url($url, $link);
       } else {
