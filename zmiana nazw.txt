@@ -2,7 +2,7 @@ stacje_paliw  -> apteki
 
 stacje.txt  -> apteki.txt
 
-Ceny paliw  -> Ceny leków
+Ceny paliw  -> Ceny lekÃ³w
 
 $tablica_stacji  -> $tablica_aptek
 

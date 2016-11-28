@@ -18,16 +18,16 @@ if (sprawdz_uzyt_admin()) {
 	$opis = $_POST['opis'];
 
     if(dodaj_apteke($id, $nazwa, $dzielnica, $ulica, $miasto, $id_kom, $lon, $lat, $opis)) {
-      echo "<p>Apteka <em>".stripslashes($id)."</em> zosta?a dodana do bazy danych.</p>";
+      echo "<p>Apteka <em>".stripslashes($id)."</em> została dodana do bazy danych.</p>";
     } else {
-      echo "<p>Apteka <em>".stripslashes($id)."</em> nie mog?aa zosta? dodana do bazy danych.</p>";
+      echo "<p>Apteka <em>".stripslashes($id)."</em> nie może zostać dodana do bazy danych.</p>";
     }
   } else {
-    echo "<p>Formularz nie zosta? wype?niony. Prosz? spr?bowa? ponownie.</p>";
+    echo "<p>Formularz nie zostać wypełniony. Proszę spróbować ponownie.</p>";
   }
   wyswietl_przycisk("admin.php", "Powr?t do menu administratora");
 } else {
-  echo "<p>Brak autoryzacji do przegl?dania tej strony.</p>";
+  echo "<p>Brak autoryzacji do przeglądania tej strony.</p>";
 }
 
 tworz_stopke_html();

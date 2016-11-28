@@ -3,19 +3,19 @@ session_start();
 
 require_once('funkcje_elementy_apteki.php');
 
-$stary_uzyt = $HTTP_SESSION_VARS['uzyt_admin'];  // przechowanie do sprawdzenia, czy by³o logowanie
+$stary_uzyt = $HTTP_SESSION_VARS['uzyt_admin'];  // przechowanie do sprawdzenia, czy byÅ‚o logowanie
 unset($HTTP_SESSION_VARS['uzyt_admin']);
 session_destroy();
 
-// rozpoczecie wyœwietlania html
+// rozpoczecie wyï¿½wietlania html
 tworz_naglowek_html('Wylogowanie');
 
 if (!empty($stary_uzyt)) {
   echo "<p>Wylogowano.</p>";
   wyswietl_przycisk("logowanie.php", "Logowanie");
 } else {
-  // nie bylo zalogowania, przypadkowa obecnoœæ na stronie
-  echo "<p>Nie zosta³eœ zalogowany.</p>";
+  // nie bylo zalogowania, przypadkowa obecnoï¿½ï¿½ na stronie
+  echo "<p>Nie zostaÅ‚eÅ› zalogowany.</p>";
   wyswietl_przycisk("logowanie.php", "Logowanie");
 }
 

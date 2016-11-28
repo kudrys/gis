@@ -21,22 +21,23 @@ function tworz_naglowek_html($tytul = '', $llonst = 0, $llatst = 0) {
 			width: 100px;
 			height: 100px;
 		}
+		/* tytuł */
+		h2 { font-family: Arial, Helvetica, sans-serif; font-size: 30px; color: #FF0000; margin 5px}
+		/* body */
+		body { font-family: Arial, Helvetica, sans-serif; font-size: 15px; background: lightgrey }
+		/* sieci aptek */
+		li, td { font-family: Arial, Helvetica, sans-serif; font-size: 15px }
+		/* kreska */
+		hr { border-color: darkred; color: darkred; background-color: #FF0000; width: 100%; text-align: center;}
+		/* sieci aptek - tekst */
+		a { color: darkred }
+		/* div content */
+		div#content { margin: 0 250px;}
+		#map { width:750px; height:600px; border-style: groove; float:right;}
 
-      h2 { font-family: Arial, Helvetica, sans-serif; font-size: 22px; color: #FF0000; margin: 6px }
-      body { font-family: Arial, Helvetica, sans-serif; font-size: 13px; background: lightgrey }
-	  /* sieci aptek */
-      li, td { font-family: Arial, Helvetica, sans-serif; font-size: 13px }
-	  /* kreska */
-      hr { border-color: darkred; color: darkred; background-color: #FF0000; width: 100%; text-align: center;}
-      /* sieci aptek - tekst */
-	  a { color: darkred }
-	  /* div content */
-	  div#content { margin: 0 200px;}
-	  #map { width:750px; height:600px; border-style: groove; float:right;}
-
-	  .cont {
-		  margin-right: 66;
-	  }
+		.cont {
+			margin-right: 66;
+		}
 
 	  div.olControlZoom {disable: True}
 	  .hide {
@@ -54,9 +55,8 @@ function tworz_naglowek_html($tytul = '', $llonst = 0, $llatst = 0) {
             var options = { projection: mercator, displayProjection: wgs84, controls: []};
 	</script>
   </head>
-	  <body>
-  <div id="content container">
-	<div class="row">
+  <body>
+  <div id="content">
 	  <table width="100%" border="0" cellspacing = "0" bgcolor="#cccccc">
 	  <tr>
 	  <td rowspan = "2">
@@ -82,9 +82,6 @@ function tworz_naglowek_html($tytul = '', $llonst = 0, $llatst = 0) {
 	function tworz_stopke_html() {
 	  // wyświetlenie stopki HTML
 	?>
-
-
-	  </div>
   </div>
   </body>
   </html>
@@ -166,10 +163,10 @@ function wyswietl_apteki($tablica_aptek) {
 }
 
 function wyswietl_dane_apteki($apteka) {
-  // wy�wietlenie wszystkich danych konkretnego elementu
+  // wyświetlenie wszystkich danych konkretnego elementu
   if (is_array($apteka)) {
     echo "<table><tr>";
-    //w�wietlenie obrazka je�eli istnieje
+    //wświetlenie obrazka jeżeli istnieje
     if (@file_exists("obrazki/".($apteka['id']).".jpg")) {
       $wielkosc = GetImageSize("obrazki/".$apteka['id'].".jpg");
       if(($wielkosc[0] > 0) && ($wielkosc[1] > 0)) {
@@ -195,7 +192,7 @@ function wyswietl_dane_apteki($apteka) {
     echo $apteka['opis'];
     echo "</li></ul></td></tr></table>";
   } else {
-    echo "B��d! Nie mo�na wy�wietli� danych dla tego elementu.";
+    echo "Błąd! Nie można wyświetlić danych dla tego elementu.";
   }
   echo "<hr />";
 }
@@ -206,10 +203,10 @@ function wyswietl_form_log() {
   <form method="post" action="admin.php">
   <table bgcolor="#cccccc">
    <tr>
-     <td>Nazwa u�ytkownika:</td>
+     <td>Nazwa użytkownika:</td>
      <td><input type="text" name="nazwa_uz"/></td></tr>
    <tr>
-     <td>Has�o:</td>
+     <td>Hasło:</td>
      <td><input type="password" name="haslo"/></td></tr>
    <tr>
      <td colspan="2" align="center">
@@ -223,10 +220,10 @@ function wyswietl_menu_admin() {
 ?>
 <br />
 <?php
-wyswietl_przycisk("index.php", "Strona g��wna");
+wyswietl_przycisk("index.php", "Strona główna");
 wyswietl_przycisk("dodaj_siec_form.php", "Dodanie nowej sieci aptek");
 wyswietl_przycisk("dodaj_apteke_form.php", "Dodanie nowej apteki");
-wyswietl_przycisk("zmiana_hasla_form.php", "Zmiana has�a administratora");
+wyswietl_przycisk("zmiana_hasla_form.php", "Zmiana hasła administratora");
 
 }
 
@@ -244,17 +241,17 @@ function wyswietl_form_przycisk($obrazek, $alt) {
 function wyswietl_form_trasy() {
 ?>
 	<div class="row">
-		<p>Przeci�gnij czerwony punkt by wyznaczy� tras� do apteki.</p>
+		<p>Przeciągnij czerwony punkt by wyznaczyć trasę do apteki.</p>
 		<p>GIS Support GeoNetwork API</p>
 		<label for="typ">Oblicz dla pojazdu: </label>
 			<select id="typ">
 			<option selected="selected" value="osobowy">do 3,5 t</option>
-			<option value="ciezarowy">powy�ej 3,5 t</option>
+			<option value="ciezarowy">powyżej 3,5 t</option>
 		</select>
 		<div id="wynik" class="hide">
-		Odleg�o��: <span id="dystans"></span>, szacowany czas przejazdu: <span id="czas"></span>
+		Odległość: <span id="dystans"></span>, szacowany czas przejazdu: <span id="czas"></span>
 		</div>
-		<div id="wyznaczanie" class="hide">Wyznaczam now� tras�...</div>
+		<div id="wyznaczanie" class="hide">Wyznaczam nową trasę...</div>
 		<hr />
 	</div>
 <?php
@@ -324,7 +321,7 @@ function wyswietl_trase($id_obr){
 			strokeOpacity: 0.4
 		})
 	});
-	var markersLayer = new OpenLayers.Layer.Vector("Punkt pocz�tkowy i apteka");
+	var markersLayer = new OpenLayers.Layer.Vector("Punkt początkowy i apteka");
 
 	var startPoint = new OpenLayers.Geometry.Point(lonst,latst).transform(wgs84, mercator)
 		
@@ -402,7 +399,7 @@ function wyswietl_trase($id_obr){
 		)
 			.fail(function (err) {
 				$('#wyznaczanie').addClass('hide');
-				alert('B��d serwera!');
+				alert('Błąd serwera!');
 			});
 	}
 	calculateRoute();

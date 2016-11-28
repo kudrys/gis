@@ -2,9 +2,9 @@
 // Ten plik zawiera funkcje wykorzystywane przez interfejs administratora
 
 function wyswietl_form_sieci($siec_apt = '') {
-// wyœwietlenie formularza kategorii
+// wyÅ›wietlenie formularza kategorii
 
-  // je¿eli przekazana istniej¹ca sieæ aptek, wejdŸ w tryb edycji
+  // jeÅ¼eli przekazana istniejÄ…ca sieÄ‡ aptek, wejdÅº w tryb edycji
   $edycja = is_array($siec_apt);
 
   
@@ -29,11 +29,10 @@ function wyswietl_form_sieci($siec_apt = '') {
      </td>
      <?php
        if ($edycja) {
-       // umo¿liwienie usuniêcia istniej¹cej sieci aptek
           echo "<td>
                 <form method=\"post\" action=\"usun_siec.php\">
                 <input type=\"hidden\" name=\"id_kom\" value=\"".$siec_apt['id_kom']."\" />
-                <button type=\"submit\">Usuñ sieæ aptek</button>
+                <button type=\"submit\">UsuÅ„ sieÄ‡ aptek</button>
                 </form></td>";
        }
      ?>
@@ -78,7 +77,7 @@ function wyswietl_form_apteki($apteka = '') {
          value="<?php echo $edycja?$apteka['miasto']:''; ?>" /></td>
   </tr>
    <tr>
-      <td>Sieæ aptek:</td>
+      <td>Sieï¿½ aptek:</td>
       <td><select name="id_kom">
       <?php
           // lista moÅ¼liwych kompanii pochodzi z bazy danych
@@ -114,8 +113,8 @@ function wyswietl_form_apteki($apteka = '') {
       <td <?php if (!$edycja) { echo "colspan=2"; }?> align="center">
          <?php
             if ($edycja)
-             // potrzebny jest stary id, aby znaleŸæ aptekê w bazie danych
-             // je¿eli id jest uaktualniany
+             // potrzebny jest stary id, aby znaleï¿½ï¿½ aptekï¿½ w bazie danych
+             // jeï¿½eli id jest uaktualniany
              echo "<input type=\"hidden\" name=\"staryid\"
                     value=\"".$apteka['id']."\" />";
          ?>
@@ -127,7 +126,7 @@ function wyswietl_form_apteki($apteka = '') {
                    <form method=\"post\" action=\"usun_apteke.php\">
                    <input type=\"hidden\" name=\"id\"
                     value=\"".$apteka['id']."\" />
-                   <button type=\"submit\">Usuñ aptekê</button>
+                   <button type=\"submit\">UsuÅ„ aptekÄ™</button>
                    </form></td>";
             }
           ?>
@@ -139,21 +138,21 @@ function wyswietl_form_apteki($apteka = '') {
 }
 
 function wyswietl_haslo_form() {
-// wyœwietlenie formularza html do zmiany has³a
+// wyï¿½wietlenie formularza html do zmiany hasï¿½a
 ?>
    <br />
    <form action="zmiana_hasla.php" method=post>
    <table width="250" cellpadding="2" cellspacing="0" bgcolor="#cccccc">
-   <tr><td>Poprzednie has³o:</td>
+   <tr><td>Poprzednie hasï¿½o:</td>
        <td><input type="password" name="stare_haslo" size="16" maxlength="16" /></td>
    </tr>
-   <tr><td>Nowe has³o:</td>
+   <tr><td>Nowe hasï¿½o:</td>
        <td><input type="password" name="nowe_haslo" size="16" maxlength="16" /></td>
    </tr>
-   <tr><td>Powtórz nowe has³o:</td>
+   <tr><td>Powtï¿½rz nowe hasï¿½o:</td>
        <td><input type="password" name="nowe_haslo2" size="16" maxlength="16" /></td>
    </tr>
-   <tr><td colspan="2" align="center"><button type="submit">Zmiana has³a</button>
+   <tr><td colspan="2" align="center"><button type="submit">Zmiana hasï¿½a</button>
    </td></tr>
    </table>
    <br />
@@ -161,12 +160,12 @@ function wyswietl_haslo_form() {
 };
 
 function dodaj_siec($nazwakat) {
-// dodaje now¹ kategoriê do bazy danych
+// dodaje nowï¿½ kategoriï¿½ do bazy danych
 
    $lacz = lacz_bd();
 	$db = mysql_connect('localhost', 'apteki', 'apteki');
 	mysql_select_db( 'apteki',$db);
-   // sprawdzenie, czy sieæ aptek juz nie istnieje
+   // sprawdzenie, czy sieï¿½ aptek juz nie istnieje
    $zapytanie = "select *
                 from sieci
                 where nazwakat='".$nazwakat."'";	
@@ -268,9 +267,9 @@ function uakt_stacje($staryid, $id, $nazwa, $dzielnica, $ulica, $miasto, $id_kom
 }
 
 function usun_siec($id_kom) {
-// Usuniêcie sieci aptek z bazy danych
-// Je¿eli dla danej sieci istnieje apteka, nie zostanie ona
-// usuniêta, a funkcja zwróci false.
+// Usuniï¿½cie sieci aptek z bazy danych
+// Jeï¿½eli dla danej sieci istnieje apteka, nie zostanie ona
+// usuniï¿½ta, a funkcja zwrï¿½ci false.
 
    $lacz = lacz_bd();
 
@@ -297,7 +296,7 @@ function usun_siec($id_kom) {
 
 
 function usun_apteke($id) {
-// Usuwa aptekê o danym id z bazy danych
+// Usuwa aptekï¿½ o danym id z bazy danych
 
    $lacz = lacz_bd();
 	$db = mysql_connect('localhost', 'apteki', 'apteki');

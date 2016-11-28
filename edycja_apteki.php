@@ -19,16 +19,16 @@ if (sprawdz_uzyt_admin()) {
 	$opis = $_POST['opis'];
 
     if(uakt_stacje($staryid, $id, $nazwa, $dzielnica, $ulica, $miasto, $id_kom, $lon, $lat, $opis)) {
-      echo "<p>Dane apteki zosta³y zmienione.</p>";
+      echo "<p>Dane apteki zostaÅ‚y zmienione.</p>";
     } else {
-      echo "<p>B³¹d! Dane apteki nie zosta³y zmienione.</p>";
+      echo "<p>BÅ‚Ä…d! Dane apteki nie zostaÅ‚y zmienione.</p>";
     }
   } else {
-    echo "<p>Formularz niewype³niony. Proszê spróbowaæ ponownie.</p>";
+    echo "<p>Formularz niewypeÅ‚niony. ProszÄ™ sprÃ³bowaÄ‡ ponownie.</p>";
   }
-  wyswietl_przycisk("admin.php", "Powrót do menu administratora");
+  wyswietl_przycisk("admin.php", "PowrÃ³t do menu administratora");
 } else {
-  echo "<p>Brak autoryzacji do ogl¹dania tej strony.</p>";
+  echo "<p>Brak autoryzacji do oglÄ…dania tej strony.</p>";
 }
 
 tworz_stopke_html();

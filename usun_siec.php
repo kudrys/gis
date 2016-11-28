@@ -7,16 +7,16 @@ tworz_naglowek_html("Usuwanie sieci aptek");
 if (sprawdz_uzyt_admin()) {
   if (isset($_POST['id_kom'])) {
     if(usun_sieci($_POST['id_kom'])) {
-      echo "<p>Sieæ aptek zosta³a usuniêta.</p>";
+      echo "<p>SieÄ‡ aptek zostaÅ‚a usuniÄ™ta.</p>";
     } else {
       echo "<p>W tej sieci jest dodana apteka.<br />
-            Najpierw usuñ wszystkie apteki.</p>";
+            Najpierw usuÅ„ wszystkie apteki.</p>";
     } }else {
-      echo "<p>Nie wybrano ¿adnej sieci. Proszê spróbowaæ ponownie.</p>";
+      echo "<p>Nie wybrano Å¼adnej sieci. ProszÄ™ sprÃ³bowaÄ‡ ponownie.</p>";
     }
-    wyswietl_przycisk("admin.php", "Powrót do menu administratora");
+    wyswietl_przycisk("admin.php", "PowrÃ³t do menu administratora");
 } else {
-  echo "<p>Brak autoryzacji do ogl¹dania tej strony.</p>";
+  echo "<p>Brak autoryzacji do oglÄ…dania tej strony.</p>";
 }
 
 tworz_stopke_html();

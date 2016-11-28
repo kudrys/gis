@@ -5,19 +5,19 @@ require_once('funkcje_elementy_apteki.php');
 
 
 if (($_POST && $_POST['nazwa_uz']) && ($_POST['haslo'])) {
-// prÛba logowania
+// pr√≥ba logowania
 
     $nazwa_uz = $_POST['nazwa_uz'];
     $haslo = $_POST['haslo'];
 
     if (loguj($nazwa_uz, $haslo)) {
-      // jeøeli w bazie danych, zg≥oszenie identyfikatora admina
+      // je≈ºeli w bazie danych, zg≈Çoszenie identyfikatora admina
 	  global $_SESSION;
       $_SESSION['uzyt_admin'] = $nazwa_uz;
     } else {
       // nieudane logowanie
       tworz_naglowek_html("Problem:");
-      echo "<p>B≥πd logowania.<br />Sprawdü nazwÍ uøytkownika i has≥o.</p>";
+      echo "<p>B≈ÇƒÖd logowania.<br />Sprawd≈º nazwƒô u≈ºytkownika i has≈Ço.</p>";
       wyswietl_przycisk('logowanie.php', 'Logowanie');
       tworz_stopke_html();
       exit;

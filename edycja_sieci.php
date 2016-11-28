@@ -8,16 +8,16 @@ tworz_naglowek_html("Uaktualnianie sieci aptek");
 if (sprawdz_uzyt_admin()) {
   if (wypelniony($_POST)) {
     if(uakt_kom($_POST['id_kom'], $_POST['nazwakat'])) {
-      echo "<p>Dane sieci aptek zosta³y uaktualnione.</p>";
+      echo "<p>Dane sieci aptek zostaÅ‚y uaktualnione.</p>";
     } else {
-      echo "<p>B³¹d! Dane sieci aptek nie zosta³y uaktualnione.</p>";
+      echo "<p>BÅ‚Ä…d! Dane sieci aptek nie zostaÅ‚y uaktualnione.</p>";
     }
   } else {
-    echo "<p>Formularz niewype³niony. Proszê spróbowaæ ponownie.</p>";
+    echo "<p>Formularz niewypeÅ‚niony. ProszÄ™ sprÃ³bowaÄ‡ ponownie.</p>";
   }
-  wyswietl_przycisk("admin.php", "Powrót do menu adminstratora");
+  wyswietl_przycisk("admin.php", "Powrï¿½t do menu adminstratora");
 } else {
-  echo "<p>Brak autoryzacji do ogl¹dania tej strony.</p>";
+  echo "<p>Brak autoryzacji do oglÄ…dania tej strony.</p>";
 }
 
 tworz_stopke_html();

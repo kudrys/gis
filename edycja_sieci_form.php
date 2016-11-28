@@ -11,11 +11,11 @@ if (sprawdz_uzyt_admin()) {
     $kom = compact('nazwakat', 'id_kom');
     wyswietl_form_kompanii($kom);
   } else {
-    echo "<p>Pobranie danych dotycz¹cych sieci aptek niemo¿liwe.</p>";
+    echo "<p>Pobranie danych dotyczÄ…cych sieci aptek niemoÅ¼liwe.</p>";
   }
-  wyswietl_przycisk("admin.php", "Powrót do menu administratora");
+  wyswietl_przycisk("admin.php", "Powrï¿½t do menu administratora");
 } else {
-  echo "<p>Brak autoryzacji do przegl¹dania obszaru administracyjnego.</p>";
+  echo "<p>Brak autoryzacji do przeglÄ…dania obszaru administracyjnego.</p>";
 }
 
 tworz_stopke_html();

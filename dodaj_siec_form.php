@@ -9,9 +9,9 @@ wyswietl_mape();
 
 if (sprawdz_uzyt_admin()) {
   wyswietl_form_kompanii();
-  wyswietl_przycisk("admin.php", "Powrót do menu administratora");
+  wyswietl_przycisk("admin.php", "PowrÃ³t do menu administratora");
 } else {
-  echo "<p>Brak autoryzacji do ogl¹dania stron administracyjnych.</p>";
+  echo "<p>Brak autoryzacji do oglÄ…dania stron administracyjnych.</p>";
 }
 
 tworz_stopke_html();

@@ -3,17 +3,17 @@
 require_once('funkcje_bazy.php');
 
 function loguj($nazwa_uz, $haslo) {
-// sprawdzenie nazwy uøytkownika i has≥a w bazie danych
-// jeøeli tak, zwraca true
+// sprawdzenie nazwy u≈ºytkownika i has≈Ça w bazie danych
+// je≈ºeli tak, zwraca true
 // w przeciwnym wypadku false
 
-  // ≥πczenie z bazπ danych
+  // ≈ÇƒÖczenie z bazƒÖ danych
   $lacz = lacz_bd();
   if (!$lacz) {
     return 0;
   }
 
-  // sprawdzenie unikatowoúci nazwy uøytkownika
+  // sprawdzenie unikatowo≈õci nazwy u≈ºytkownika
   $wynik = $lacz->query("select * from admin
                          where nazwa_uz='".$nazwa_uz."'
                          and haslo = sha1('".$haslo."')");
@@ -29,7 +29,7 @@ function loguj($nazwa_uz, $haslo) {
 }
 
 function sprawdz_uzyt_admin() {
-// sprawdzenie zalogowanie i powiadomienie, jeøeli nie
+// sprawdzenie zalogowanie i powiadomienie, je≈ºeli nie
 
   global $_SESSION;
   if (isset($_SESSION['uzyt_admin'])) {
@@ -40,11 +40,11 @@ function sprawdz_uzyt_admin() {
 }
 
 function zmien_haslo($nazwa_uz, $stare_haslo, $nowe_haslo) {
-// zmiana has≥a uøytkownika
+// zmiana has≈Ça u≈ºytkownika
 // zwraca true lub false
 
-  // jeøeli stare has≥o prawid≥owe
-  // zmiana has≥a na nowe_haslo i zwraca true
+  // je≈ºeli stare has≈Ço prawid≈Çowe
+  // zmiana has≈Ça na nowe_haslo i zwraca true
   // w przeciwnym wypadku false
   if (loguj($nazwa_uz, $stare_haslo)) {
     if (!($lacz = lacz_bd())) {
@@ -56,11 +56,11 @@ function zmien_haslo($nazwa_uz, $stare_haslo, $nowe_haslo) {
     if (!$wynik) {
       return false;  // brak zmian
     } else {
-      return true;  // zmiana pomyúlna
+      return true;  // zmiana pomy≈õlna
     }
   }
   else {
-    return false; // nieprawid≥owe stare has≥o
+    return false; // nieprawid≈Çowe stare has≈Ço
   }
 }
 

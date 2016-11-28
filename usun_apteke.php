@@ -9,16 +9,16 @@ if (sprawdz_uzyt_admin())
   if (isset($_POST['id'])) {
     $id = $_POST['id'];
     if(usun_apteke($id)) {
-      echo "<p>Apteka ".$id." zosta³a usuniêta.</p>";
+      echo "<p>Apteka ".$id." zostaÅ‚a usuniÄ™ta.</p>";
     } else {
-      echo "<p>Apteka ".$id." nie mog³a zostaæ usuniêta.</p>";
+      echo "<p>Apteka ".$id." nie mogÅ‚a zostaÄ‡ usuniÄ™ta.</p>";
     }
   } else {
-    echo "<p>Do usuniêcia apteki potrzebny jest numer id. Proszê spróbowaæ ponownie.</p>";
+    echo "<p>Do usuniÄ™cia apteki potrzebny jest numer id. ProszÄ™ sprÃ³bowaÄ‡ ponownie.</p>";
   }
-  wyswietl_przycisk("admin.php", "Powrót do menu administratora");
+  wyswietl_przycisk("admin.php", "PowrÃ³t do menu administratora");
 } else {
-  echo "<p>Brak autoryzacji do ogl¹dania tej strony.</p>";
+  echo "<p>Brak autoryzacji do oglÄ…dania tej strony.</p>";
 }
 
 tworz_stopke_html();

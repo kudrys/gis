@@ -1,7 +1,7 @@
 <?php
 
 function pobierz_sieci() {
-   // zapytanie bazy danych o listê sieci aptek
+   // zapytanie bazy danych o listÄ™ sieci aptek
    $lacz = lacz_bd();
    $zapytanie = "select id_kom, nazwakat from sieci";
    $wynik = @$lacz->query($zapytanie);
@@ -17,7 +17,7 @@ function pobierz_sieci() {
 }
 
 function pobierz_nazwe_sieci($id_kom) {
-   // zapytanie bazy danych o nazwê dla identyfikatora sieci aptek
+   // zapytanie bazy danych o nazwÄ™ dla identyfikatora sieci aptek
    $id_kom = intval($id_kom);
    $lacz = lacz_bd();
    $zapytanie = "select nazwakat from sieci where id_kom = '".$id_kom."'";

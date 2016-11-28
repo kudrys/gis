@@ -6,7 +6,7 @@ function przygotuj($tablica_aptek) {
  if($tablica_aptek){
  foreach ($tablica_aptek as $rzad) {
 	$text .= $rzad["lat"]."\t".$rzad["lon"]."\t";
-	$text .= "Ceny leków:\t";
+	$text .= "Ceny lekÃ³w:\t";
 	$text .= $rzad["opis"]."\t";
 	$text .= "38,38\t";
 	$text .= "-10,-38\t";

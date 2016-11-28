@@ -9,15 +9,15 @@
   przygotuj($tablica_aptek);
   
   //tworz_naglowek_html($nazwa);
-  tworz_naglowek_html("Apteki na terenie Trójmiasta");
+  tworz_naglowek_html("Apteki na terenie TrÃ³jmiasta");
   wyswietl_mape();
 
-  echo "<p>Proszê wybraæ sieæ aptek:</p>";
+  echo "<p>ProszÄ™ wybraÄ‡ sieÄ‡ aptek:</p>";
 
   wyswietl_sieci($tablica_sieci);
 
-  // je¿eli zalogowany jako administrator, udostêpnij dodawanie,
-  // usuwanie i edycjê
+  // jeÅ¼eli zalogowany jako administrator, udostÄ™pnij dodawanie,
+  // usuwanie i edycjÄ™
   if(isset($_SESSION['uzyt_admin'])) {
     wyswietl_przycisk("admin.php", "Menu Administratora");
   }

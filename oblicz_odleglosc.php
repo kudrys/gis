@@ -19,12 +19,12 @@ require_once('funkcje_elementy_apteki.php');
   if($apteka['id']) {
     $cel = "pokaz_apteki.php?id=".$apteka['id'];
   }
-  // je¿eli zalogowany jako administrator, udostêpnij edycjê danych apteki
+  // jeÅ¼eli zalogowany jako administrator, udostÄ™pnij edycjÄ™ danych apteki
   if(sprawdz_uzyt_admin()) {
     wyswietl_przycisk("admin.php","Menu administratora");
-    wyswietl_przycisk($cel,"Powrót");
+    wyswietl_przycisk($cel,"PowrÃ³t");
   } else {
-    wyswietl_przycisk($cel,"Powrót");
+    wyswietl_przycisk($cel,"PowrÃ³t");
   }
   
   tworz_stopke_html();

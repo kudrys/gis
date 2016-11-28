@@ -8,16 +8,16 @@ if (sprawdz_uzyt_admin()) {
   if (wypelniony($_POST)) {
     $nazwakat = $_POST['nazwakat'];
     if(dodaj_kom($nazwakat)) {
-      echo "<p>Sieæ aptek \"".$nazwakat."\" zosta³a dodana do bazy danych.</p>";
+      echo "<p>SieÄ‡ aptek \"".$nazwakat."\" zostaÄ‡ dodana do bazy danych.</p>";
     } else {
-      echo "<p>Sieæ aptek \"".$nazwakat."\" nie mog³a zostaæ dodana do bazy danych.</p>";
+      echo "<p>SieÄ‡ aptek \"".$nazwakat."\" nie moÅ¼e zostaÄ‡ dodana do bazy danych.</p>";
     }
   } else {
-    echo "Formularz niewype³niony. Proszê spróbowaæ ponownie.";
+    echo "Formularz niewypeÅ‚niony. ProszÄ™ sprÃ³bowaÄ‡ ponownie.";
   }
-  wyswietl_przycisk('admin.php', 'Powrót do menu administratora');
+  wyswietl_przycisk('admin.php', 'PowrÃ³t do menu administratora');
 } else {
-  echo "<p>Brak autoryzacji do przegl¹dania tej strony.</p>";
+  echo "<p>Brak autoryzacji do przeglÄ…dania tej strony.</p>";
 }
 
 tworz_stopke_html();

@@ -2,15 +2,15 @@
  session_start();
  require_once('funkcje_elementy_apteki.php');
  
- tworz_naglowek_html("Zmiana has³a administratora");
+ tworz_naglowek_html("Zmiana hasÅ‚a administratora");
 if (sprawdz_uzyt_admin()) {
 
  wyswietl_haslo_form();
 
- wyswietl_przycisk("admin.php", "Powrót do menu administratora");
+ wyswietl_przycisk("admin.php", "PowrÃ³t do menu administratora");
 }
 else {
- echo "<p>Brak autoryzacji do ogl¹dania tej strony.</p>";
+ echo "<p>Brak autoryzacji do oglÄ…dania tej strony.</p>";
 }
  tworz_stopke_html();
 ?>

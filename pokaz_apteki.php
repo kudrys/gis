@@ -14,7 +14,7 @@ require_once('funkcje_elementy_apteki.php');
   wyswietl_mape($z=1);
   wyswietl_dane_apteki($apteka);
 
-  // ustawienie URL-a dla przycisku powrót
+  // ustawienie URL-a dla przycisku powrÃ³t
   $cel = "index.php";
   if($apteka['id_kom']) {
     $cel = "pokaz_sieci.php?id_kom=".$apteka['id_kom'];
@@ -23,10 +23,10 @@ require_once('funkcje_elementy_apteki.php');
   if(sprawdz_uzyt_admin()) {
     wyswietl_przycisk("edycja_apteki_form.php?id=".$id,"Edycja danych apteki");
     wyswietl_przycisk("admin.php","Menu administratora");
-    wyswietl_przycisk($cel,"Powrót");
+    wyswietl_przycisk($cel,"PowrÃ³t");
   } else {
-    wyswietl_przycisk("oblicz_odleglosc.php?id=".$apteka['id'], "Oblicz odleg³oœæ");
-    wyswietl_przycisk($cel,"Powrót");
+    wyswietl_przycisk("oblicz_odleglosc.php?id=".$apteka['id'], "Oblicz odlegÅ‚oÅ›Ä‡");
+    wyswietl_przycisk($cel,"PowrÃ³t");
   }
 
   tworz_stopke_html();
